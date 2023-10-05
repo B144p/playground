@@ -12,7 +12,7 @@ const getAllId = (values: dataTypes[]) => {
         if (item.id) {
             idArr.push(item?.id)
             if (item?.child) {
-                getAllId(item.child)
+                idArr = [...idArr, ...getAllId(item.child)]
             } else return
         }
     })
