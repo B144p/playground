@@ -1,0 +1,66 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #444;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  
+    // cursor: auto;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: inherit;
+}
+
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    // background-color: black;
+}
+
+// html {
+//     cursor: pointer;
+// }
+
+#custom-button {
+    border: 1px solid black;
+}
+  
+.custom-modal {
+    height: 70vh;
+}
+
+
+// button {
+//     .nes-btn {
+//         border-radius: 2rem;
+//     }
+// }
+
+
+// .nes-btn {
+//     border-radius: 1rem;
+// }
+
+
+
+
+
+
+
+@import "./assets/scss/global.scss"
