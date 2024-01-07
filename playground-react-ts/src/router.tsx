@@ -7,6 +7,9 @@ import { IStore } from "./app/store";
 const BaseLayout = lazy(() => import("./layouts/BaseLayout"));
 const SelectProject = lazy(() => import("./views/app/SelectProject"));
 
+// Routes: Sprite animation
+const RyuComp = lazy(() => import("./views/app/sprite-animation/RyuComp"));
+
 const publicRouters: RouteObject = {
   path: "/",
   element: <BaseLayout />,
@@ -36,7 +39,7 @@ export const spriteSheetRouters: RouteObject = {
   path: "/",
   element: <BaseLayout />,
   children: [
-    { path: "/", element: <h1>spriteSheetRouters/</h1> },
+    { path: "/", element: <RyuComp /> },
     { path: "/check", element: <h1>spriteSheetRouters/check</h1> },
   ],
 };
@@ -54,9 +57,7 @@ const routersCase = (type: string | null) => {
 
 export const RouterScope = () => {
   const dispatch = useDispatch();
-  const { selected } = useSelector(
-    (state: IStore) => state.project
-  );
+  const { selected } = useSelector((state: IStore) => state.project);
 
   useEffect(() => {
     dispatch(selectedProject(localStorage.getItem("project")));

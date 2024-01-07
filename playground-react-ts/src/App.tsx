@@ -1,7 +1,6 @@
 import { Spin } from "antd";
 import { Suspense } from "react";
 import { useRoutes } from "react-router-dom";
-import "./App.css";
 import { RouterScope } from "./router";
 
 const Loading = () => {
