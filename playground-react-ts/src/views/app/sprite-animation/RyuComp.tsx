@@ -17,22 +17,22 @@ const RyuStyledComp = styled.div`
 type Props = {};
 
 const RyuComp: React.FC<Props> = () => {
-  const containerStyled: React.CSSProperties = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  };
   return (
-    <>
-      <div style={containerStyled}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+      }}
+    >
+      <div>
         <div id="ryu" />
         <p>Pure Css</p>
       </div>
-      <div style={containerStyled}>
+      <div>
         <RyuStyledComp />
         <p>Styled component</p>
       </div>
-      <div style={containerStyled}>
+      <div>
         <SpriteAnimator
           sprite="http://bennet.org/images/codepen/ryu-sprite-demo.png"
           width={435}
@@ -44,7 +44,7 @@ const RyuComp: React.FC<Props> = () => {
         />
         <p>react-sprite-animator</p>
       </div>
-    </>
+    </div>
   );
 };
 

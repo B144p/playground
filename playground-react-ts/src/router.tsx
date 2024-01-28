@@ -1,14 +1,33 @@
 import { lazy, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RouteObject } from "react-router";
-import { selectedProject } from "./slices/project/project.slice";
 import { IStore } from "./app/store";
+import { selectedProject } from "./slices/project/project.slice";
 
 const BaseLayout = lazy(() => import("./layouts/BaseLayout"));
+const ReactSpringLayout = lazy(() => import("./layouts/ReactSpringLayout"));
 const SelectProject = lazy(() => import("./views/app/SelectProject"));
 
 // Routes: Sprite animation
 const RyuComp = lazy(() => import("./views/app/sprite-animation/RyuComp"));
+
+// Routes: React spring
+const ReactSpringIndex = lazy(
+  () => import("./views/app/react-spring/ReactSpringIndex")
+);
+const ParallaxIndex = lazy(
+  () => import("./views/app/react-spring/parallax/ParallaxIndex")
+);
+const ParallaxVertical = lazy(
+  () => import("./views/app/react-spring/parallax/vertical/ParallaxVertical")
+);
+const ParallaxHorizontal = lazy(
+  () =>
+    import("./views/app/react-spring/parallax/horizontal/ParallaxHorizontal")
+);
+const ParallaxSticky = lazy(
+  () => import("./views/app/react-spring/parallax/sticky/ParallaxSticky")
+);
 
 const publicRouters: RouteObject = {
   path: "/",
@@ -44,12 +63,26 @@ export const spriteSheetRouters: RouteObject = {
   ],
 };
 
+export const reactSpringRouters: RouteObject = {
+  path: "/",
+  element: <ReactSpringLayout />,
+  children: [
+    { path: "/", element: <ReactSpringIndex /> },
+    { path: "/parallax", element: <ParallaxIndex /> },
+    { path: "/parallax/vertical", element: <ParallaxVertical /> },
+    { path: "/parallax/horizontal", element: <ParallaxHorizontal /> },
+    { path: "/parallax/sticky", element: <ParallaxSticky /> },
+  ],
+};
+
 const routersCase = (type: string | null) => {
   switch (type) {
     case "stacking-ring":
       return stackingRingRouters;
     case "sprite-sheet":
       return spriteSheetRouters;
+    case "react-spring":
+      return reactSpringRouters;
     default:
       return publicRouters;
   }

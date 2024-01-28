@@ -12,7 +12,7 @@ interface BaseLayoutProps {
   children?: ReactNode;
 }
 
-const BaseLayout: FC<BaseLayoutProps> = () => {
+const ReactSpringLayout: FC<BaseLayoutProps> = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -32,8 +32,6 @@ const BaseLayout: FC<BaseLayoutProps> = () => {
           lineHeight: "120px",
           color: "#fff",
           backgroundColor: "#6496C8",
-          display: "flex",
-          justifyContent: "center",
         }}
       >
         <Outlet />
@@ -80,8 +78,8 @@ const BaseLayout: FC<BaseLayoutProps> = () => {
   );
 };
 
-BaseLayout.propTypes = {
+ReactSpringLayout.propTypes = {
   children: PropTypes.node,
 };
 
-export default BaseLayout;
+export default ReactSpringLayout;

@@ -18,6 +18,7 @@ export const projectSlice = createSlice({
     },
     unSelectedProject: (state) => {
       localStorage.removeItem("project");
+      window.location.href = "/";
       state.selected = "";
     },
   },

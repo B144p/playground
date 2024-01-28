@@ -1,7 +1,7 @@
 import { Card, Col, Row } from "antd";
 import React from "react";
 import { useDispatch } from "react-redux";
-import styled from "styled-components";
+import GlassCard from "../../components/GlassCard";
 import { selectedProject } from "../../slices/project/project.slice";
 
 type Props = {};
@@ -11,28 +11,14 @@ type IProject = {
   key: string;
 };
 
-const OpacityColorHex = (color: string, opacity: number) => {
+export const OpacityColorHex = (color: string, opacity: number) => {
   return "#" + color + Math.floor(opacity * 256).toString(16);
 };
-
-const GlassCard = styled(Card)`
-  width: min(100%, 960px);
-  min-height: 80%;
-  position: absolute;
-
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
-  box-shadow: 0 4px 30px ${OpacityColorHex("000000", 0.1)};
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-`;
 
 const projectList: IProject[] = [
   { title: "Stacking Ring", key: "stacking-ring" },
   { title: "Sprite", key: "sprite-sheet" },
-  // { title: "Empty", key: "" },
+  { title: "React spring", key: "react-spring" },
 ];
 
 const SelectProject: React.FC<Props> = () => {
@@ -53,7 +39,7 @@ const SelectProject: React.FC<Props> = () => {
       justify="center"
     >
       <h1 style={{ fontSize: "10rem" }}>Test Text</h1>
-      <GlassCard>
+      <GlassCard minHeight="80%" maxWidth="960px">
         <h1>Please select your project.</h1>
         <Row gutter={[8, 8]}>
           {projectList.map((item) => {
