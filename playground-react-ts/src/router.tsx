@@ -29,6 +29,11 @@ const ParallaxSticky = lazy(
   () => import("./views/app/react-spring/parallax/sticky/ParallaxSticky")
 );
 
+// Routes: React hexagonal
+const HexagonalIndex = lazy(
+  () => import("./views/app/hexagonal/HexagonalIndex")
+);
+
 const publicRouters: RouteObject = {
   path: "/",
   element: <BaseLayout />,
@@ -75,8 +80,18 @@ export const reactSpringRouters: RouteObject = {
   ],
 };
 
+export const hexagonalRouters: RouteObject = {
+  path: "/",
+  element: <BaseLayout />,
+  children: [
+    { path: "/", element: <HexagonalIndex /> },
+  ],
+};
+
 const routersCase = (type: string | null) => {
   switch (type) {
+    case "hexagonal":
+      return hexagonalRouters;
     case "stacking-ring":
       return stackingRingRouters;
     case "sprite-sheet":

@@ -16,6 +16,7 @@ export const OpacityColorHex = (color: string, opacity: number) => {
 };
 
 const projectList: IProject[] = [
+  { title: "Hexagonal", key: "hexagonal" },
   { title: "Stacking Ring", key: "stacking-ring" },
   { title: "Sprite", key: "sprite-sheet" },
   { title: "React spring", key: "react-spring" },
