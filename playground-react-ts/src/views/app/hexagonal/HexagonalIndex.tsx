@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 const widthHex = 200;
 const heighHex = (2 * widthHex) / Math.sqrt(3);
-const gapHex = 2;
+// const gapHex = 2;
 
 const LoaderDivStyle = styled.div`
   border: 1px solid red;
